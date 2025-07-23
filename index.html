@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notícias e Vídeos sobre Carros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fique por dentro das últimas notícias e vídeos sobre carros." />
+  <meta name="keywords" content="carros, notícias, vídeos, lançamentos, reviews, dicas" />
+  <meta name="author" content="Seu Nome ou Nome do Site" />
+  <meta name="robots" content="index, follow" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      width: 100%;
+      background-color: #181818;
+      border-radius: 8px;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    /* Coluna esquerda: vídeos */
+    #video {
+      flex: 1 1 700px;
+      background-color: #222;
+      border-radius: 8px;
+      padding: 15px;
+      max-height: 700px;
+      overflow-y: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    #video iframe {
+      border-radius: 10px;
+      border: none;
+      width: 320px;
+      height: 180px;
+      box-shadow: 0 0 12px rgba(40, 167, 69, 0.7);
+      transition: transform 0.3s ease;
+    }
+
+    #video iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(40, 167, 69, 1);
+    }
+
+    /* Coluna direita: anúncios e botão conferir */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 350px;
+      min-width: 320px;
+      align-items: center;
+    }
+
+    .promo-frame {
+      width: 100%;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .promo-frame:hover {
+      box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+    }
+
+    .promo-frame.tall {
+      height: 500px;
+      margin-top: 10px;
+    }
+
+    /* Botão carregar vídeos */
+    #btn {
+      width: 180px;
+      padding: 14px 0;
+      font-size: 18px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #28a745, #218838);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-bottom: 20px;
+      align-self: center;
+    }
+
+    #btn:hover:not(:disabled) {
+      background: linear-gradient(90deg, #218838, #1e6c30);
+    }
+
+    #btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    /* Botão link "CONFERIR" */
+    .btn-link {
+      display: inline-block;
+      background-color: #d32f2f;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      box-shadow: 0 0 8px #d32f2f;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      width: 100%;
+    }
+
+    .btn-link:hover {
+      background-color: #9a2222;
+      box-shadow: 0 0 12px #9a2222;
+    }
+
+    /* Container geral com botão no topo */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin-bottom: 30px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sidebar {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      #video {
+        max-height: none;
+        width: 100%;
+        justify-content: center;
+      }
+
+      #btn {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .btn-link {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-content">
+    <button id="btn">CARREGAR +</button>
+  </div>
+
+  <div class="container">
+    <div id="video">
+      <!-- Vídeos carregados dinamicamente via videos.js -->
+    </div>
+
+    <div class="sidebar">
+      <iframe class="promo-frame" src="https://modeloanuncio01.pages.dev/" allowfullscreen></iframe>
+      <iframe class="promo-frame tall" src="https://encurtadorko.pages.dev/" allowfullscreen></iframe>
+      <a href="http://www.espiritosanto-es.com.br/cloudflare" class="btn-link" target="_blank" rel="noopener noreferrer">CONFERIR</a>
+    </div>
+  </div>
+
+  <script src="videos.js"></script>
+
+</body>
+</html>
